@@ -34,3 +34,6 @@
 *cmake-build-*
 *.idea
 **build**
+
+data_odometry_gray.zip
+.vscode

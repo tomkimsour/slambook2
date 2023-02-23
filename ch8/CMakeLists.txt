@@ -1,9 +1,9 @@
-cmake_minimum_required(VERSION 2.8)
+cmake_minimum_required(VERSION 3.22.1)
 project(ch8)
 
 set(CMAKE_BUILD_TYPE "Release")
 add_definitions("-DENABLE_SSE")
-set(CMAKE_CXX_FLAGS "-std=c++11 ${SSE_FLAGS} -g -O3 -march=native")
+set(CMAKE_CXX_FLAGS "-std=c++14 ${SSE_FLAGS} -g -O3 -march=native")
 
 find_package(OpenCV 4 REQUIRED)
 find_package(Sophus REQUIRED)
@@ -21,4 +21,4 @@ add_executable(optical_flow optical_flow.cpp)
 target_link_libraries(optical_flow ${OpenCV_LIBS})
 
 add_executable(direct_method direct_method.cpp)
-target_link_libraries(direct_method ${OpenCV_LIBS} ${Pangolin_LIBRARIES})
+target_link_libraries(direct_method Sophus::Sophus ${OpenCV_LIBS} ${Pangolin_LIBRARIES})
